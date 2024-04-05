@@ -1,0 +1,17 @@
+3명 중에 2명이상이 찬성하며 통과시키는 시스템을 설계하시오
+
+#include <stdio.h>
+
+int main(void) 
+{
+	int = a,b,c
+	
+	scanf("%d %d %d" , &a, &b, &c);
+	
+	if(a==1&&b==1 || a==1&&c==1 || b==1&&c==1)
+		printf("통과 \n");
+	else
+		printf("불통과" \n");
+
+return 0;
+}
