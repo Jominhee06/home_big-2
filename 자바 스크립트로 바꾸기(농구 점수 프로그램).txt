@@ -1,0 +1,65 @@
+# 자바 스크립트로 바꾼 코드
+
+class BasketballGame {
+    constructor(team1_name, team2_name) {
+        this.team1_name = team1_name;
+        this.team2_name = team2_name;
+        this.team1_score = 0;
+        this.team2_score = 0;
+    }
+
+    score(team) {
+        // Randomly determine if the team scores
+        if (Math.random() < 0.8) { // 80% chance of scoring
+            console.log(`${team} scored!`);
+            return 2; // Score 2 points
+        } else {
+            console.log(`${team} missed the shot.`);
+            return 0;
+        }
+    }
+
+    foul(team) {
+        // Randomly determine if the team fouls
+        if (Math.random() < 0.5) { // 50% chance of foul
+            console.log(`${team} fouled!`);
+            return true;
+        } else {
+            console.log(`${team} continues its offense.`);
+            return false;
+        }
+    }
+
+    playGame() {
+        console.log(`${this.team1_name} vs ${this.team2_name} Basketball Game Started!`);
+        while (true) {
+            // Team 1's turn
+            if (this.foul(this.team1_name)) {
+                console.log(`End of ${this.team1_name}'s possession.`);
+                continue;
+            }
+            this.team1_score += this.score(this.team1_name);
+
+            // Team 2's turn
+            if (this.foul(this.team2_name)) {
+                console.log(`End of ${this.team2_name}'s possession.`);
+                continue;
+            }
+            this.team2_score += this.score(this.team2_name);
+
+            console.log(`Current Score: ${this.team1_name} ${this.team1_score} - ${this.team2_score} ${this.team2_name}`);
+
+            // Game end condition
+            if (this.team1_score >= 10 || this.team2_score >= 10) {
+                break;
+            }
+        }
+
+        console.log("Game Over!");
+        console.log(`Final Score: ${this.team1_name} ${this.team1_score} - ${this.team2_score} ${this.team2_name}`);
+    }
+}
+
+// Start basketball game
+const game = new BasketballGame("Team A", "Team B");
+game.playGame();
