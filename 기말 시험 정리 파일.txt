@@ -1,0 +1,51 @@
+함수
+모듈
+리스트/튜플/딕션너리
+Class, Class 란? Class 의 특징
+Thread 사용 방법
+객체지향 프로그래밍의 장점
+
+10문제 4지선다 
+
+
+
+
+
+from turtle import Turtle
+from turtle import *
+import random
+
+t = Turtle()
+t.screen.title('Turtle Name')
+t.screen.bgcolor("white")
+t.shape('turtle')
+t.pensize(5)
+t.speed(2)
+rgb = ['blue','red','black','yellow','green'] 
+
+def turtle_move(posi):
+
+    for _ in range(posi):
+        x = random.randint(-400,400)
+        y = random.randint(-400,400)
+        t.pencolor(random.choice(rgb))
+        t.goto(x,y)
+        t.fillcolor(random.choice(rgb))
+
+turtle_move(10)
+t.screen.mainloop()
+
+
+
+
+aa = [3,2,1,2,3,3,2,3,4,5,2,3,3,4,2]
+bb = aa.copy()
+
+print("aa의 리스트를 bb로 복사 : %s" % bb)
+
+for i in range(1, len(bb)):
+    if bb.count(bb[i-1]) > bb.count(bb[i]):
+        bb[i] = bb[i-1]
+        c = bb[i]
+
+print("aa에서 가장 많이 있는 수 : %d" % c)
