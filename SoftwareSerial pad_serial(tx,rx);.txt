@@ -1,0 +1,31 @@
+SoftwareSerial pad_serial(tx,rx);
+
+void setup() {
+  // put your setup code here, to run once:
+    Serial.begin(9600);
+    pad_serial.begin(9600);
+        
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+    static int i = 0;
+    if(pad_serial.available())
+    {
+      ary[i] = Serial.read();
+      if(ary[i] == '#')
+      {
+        ary[i] = '\0';
+        i = 0;
+        int key = atoi(ary);
+          if(key == 1234)
+          {
+            Serial.print("Success");
+          }
+          else{
+            Serial.print("FALL");
+          }
+        else
+          i++;
+      }
+    }
